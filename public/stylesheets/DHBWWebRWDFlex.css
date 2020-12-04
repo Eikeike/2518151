@@ -1,0 +1,222 @@
+/* -----------------------------------------------------------------------------
+   The following CSS 3 Grid statements layouts the viewport (visible page).
+  The Grid consists of the Header, the Navigation ,
+  the scrollable Part (youTube, Fakultäten) and the footer
+  In this case the Grid has four rows (height = auto) and 1 column with a
+  width of 100 %
+  The Header, the youTube and the Fakultäten become a flexbox
+  The whole Grid is positioned fixed and row 3 should be made scrollable
+  ----------------------------------------------------------------------------  */
+body {display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    justify-items: stretch;
+    align-items: stretch;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%
+  }
+
+  .pagegridheader {grid-area: 1 / 1 / span 1 / span 1}
+  .pagegridnavigation {grid-area: 2 / 1 / span 1 /span 1}
+  .pagegridsrcol  {grid-area: 3 / 1 / span 1 / span 1; overflow:auto}
+  .pagegridsfooter  {grid-area: 4 / 1 / span 1 / span 1}
+
+  nav li:nth-child(2n+1) {background-color: #726e6e; }
+  nav li:nth-child(2n+0) a:visited{color: rgb(109, 107, 107)}
+  nav li:nth-child(2n+0) {background-color: #a5a5a5 }
+                                
+nav li {list-style-type:none; padding: 1.3rem; font-weight:bold    }
+nav div:hover {background-color:white;}
+nav a { text-decoration: none; padding: inherit; color: rgb(20, 20, 20);}
+a:visited { color: rgb(161, 161, 161);}
+a:hover, a:active, a:focus { color: darkred;  text-decoration: none;}
+/* -----------------------------------------------------------------------------
+   The following statements are examples of flex-box classes, of course you can
+   build your own
+-------------------------------------------------------------------------------- */
+.flexboxheader,.flexboxnav,.flexFakultaet {display:flex; flex-flow: row wrap; }
+.flexboxheader {justify-content: space-between; align-items: center; }
+header,footer{
+  color: white; background-color: #393939;
+}
+footer{
+  
+  padding: 0.5rem;
+}
+
+#PullupServices{cursor: pointer;}
+
+.flexboxnav {justify-content: flex-end; background-color: #393939; }
+.flexFakultaet {justify-content: space-between; align-items: stretch;}
+
+.flexyouTube {
+    flex-flow:column; 
+    max-width: 90%; 
+    align-items: center;
+    border-bottom: 2px solid black; 
+    background-color: #666;
+    justify-content: center;
+    padding:3em; 
+    }
+.youtube{
+  margin: 1rem;
+}
+.card{
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 5px 9px 0 rgba(0,0,0,0.2);
+    transition: 0.2s;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+.card:hover {
+  box-shadow: 0 10px 18px 0 rgba(0,0,0,0.2);
+}
+
+.Fakultaet{
+  max-width: 75%;
+}
+.FakLabel{
+  font-size: 1.6rem;
+  color:white;
+  background-color: #393939;
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+.FakImg{
+  
+  flex-grow: 1;
+}
+
+.FakImg > img{
+  max-width: 100%;
+}
+.FakTxt{
+  flex-grow:2;
+}
+
+.popup{
+  left:0;
+  display:none;
+  background-color:white;
+  padding:6px;
+  border-style: solid;
+  border-width: 0.5px;
+  max-width: 60%;
+  z-index:10;
+}
+
+table, th, td {
+  border: 0.5px solid black;
+}
+
+table{
+  border-collapse: collapse;
+  max-width: 90%;
+}
+
+
+.popupItem{
+  list-style-type: none; 
+  padding: 5px;
+}
+#popupli1{
+  cursor: pointer;
+  border: black; 
+  border-style: solid; 
+  border-width: 0.5px;
+  padding: 4px;
+}
+
+.backButton{
+  font-size: 0.7rem;
+  text-align: center;
+  box-shadow: #393939;
+  cursor: pointer;
+  background-color: white;}
+
+#topButton {
+  display: inline-block;
+  background-color: #333;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#topButton:hover {
+  cursor: pointer;
+  background-color: darkred;
+}
+#topButton.show {
+  opacity: 1;
+  visibility: visible;
+}
+.Rowtable {
+  display: block;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+  width: 100%;
+}
+
+.cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;  
+  overflow: hidden; 
+  list-style: none;
+  border-bottom: solid #333;
+  text-align:justify;
+  width: 100%;
+  padding: 0rem 0.5rem
+}
+.cell:nth-child(3n+1) {
+  font-weight: bold;
+}
+.cell:not(:nth-child(3n)){
+  padding: 2rem 0rem;
+}
+
+/* consider the changes needed based on different screen sizes caught by the
+    @media only screen and (min-width
+  */
+  @media only screen and (min-width: 10px) {
+    header span {font-size: 1rem;padding-right:1.0rem}
+    nav li {flex: 1 0 100%;}
+    .FakImg {flex-basis: 100%}
+    .FakTxt {flex-basis: 100%}
+  }
+      /* For small  tablets: 450-700  */
+  @media only screen and (min-width: 450px) {
+  header span {font-size: 1.2rem;padding-right:1.2rem}
+  nav li {flex: 1 0 0}
+  .FakImg {flex-basis:auto;}
+  .FakTxt {flex-basis: auto;}
+  }
+ 
+
+  @media only screen and (min-width: 700px) {
+    header span {font-size: 1.4rem;padding-right:1.5rem}
+    .FakImg {flex-basis:50%;}
+    .FakTxt {flex-basis: 50%;}
+    .Rowtable {
+      display: flex;
+    }
+     .Rowtable > .cell { width: 33.33% !important; }
+    }
+
+  @media only screen and (min-width: 1000px) {
+    header span {font-size: 1.6rem;padding-right:2rem}
+    
+  }
