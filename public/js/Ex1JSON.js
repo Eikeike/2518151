@@ -47,8 +47,20 @@ button.on('click', function(e) {
   //if a back-Button on one of the pullup-windows is pressed, detroy the window its in
   var backButtons = document.getElementsByClassName('backButton');
   Array.from(backButtons).forEach(el => {
-    el.addEventListener("click", ()=>{el.parentNode.style.display = "none";});
-  })
+    el.addEventListener("click", ()=>{el.parentNode.style.display = "none";});})
+
+    let easycookies = "; " + document.cookie + ";";
+    const partsUser = easycookies.split('; username=');
+    console.log(easycookies);
+    if (partsUser.length === 2) document.getElementById("welcomeMessage").innerHTML = "Welcome, " + partsUser.pop().split(';').shift();
+
+    const partsRole = easycookies.split("; role=");
+    const role = partsRole.pop().split(';').shift();
+
+    if(role == 'poor'){
+      document.getElementById("hideFromPoorUsers").innerHTML = "<p style=\"margin:4px; text-align:justify\">Sorry, you cannot view dynamic contents."+
+                                                            "Only users with the word \"rich\" in their name can do this</p>"
+    }
 
 }
 /***
@@ -93,6 +105,8 @@ function loadDoc(toGet) {
   xhttp.open("GET", toGet, true);
   xhttp.send();
 }
+
+
 
 /**
  * Pulls up a new window if "Dienste" is clicked

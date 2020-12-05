@@ -21,6 +21,7 @@
   <div class="pagegridheader">
     <header class="flexboxheader">
       <img src="/images/logodhbw.svg" alt="W3Schools.com" >
+      <p id="welcomeMessage"></p>
       <h1>DHBW Stuttgart Web Engineering Portal</h1>
     </header>
   </div>
@@ -38,13 +39,17 @@
   <div id="PullupOptions" class="popup">
       <i class="material-icons backButton">keyboard_arrow_left</i>
     <ul style="padding:auto;">
-      <li class ="popupItem"> <span id="popupli1">Leute</span></li>
+      <li class ="popupItem"> <a href="logout" style="text-decoration: none" id="logout" class="rand">Logout</a></li>
+      <div id="hideFromPoorUsers">
+      <li class ="popupItem"> <span id="popupli1" class="rand">Leute</span></li>
       <li class = "popupItem"><span id="popupli2">Enter search:</span></li>
-    </ul>
-        <form id="search" style="padding:0em 2em">
+    
+        <form id="search" class="search">
           <input type="text" id="wikiSearch">
           <button type ="button" id="submitSearch">go</button>
         </form> 
+
+      </ul>
     <div class= "Rowtable" id= "showResults"></div>
       
 
@@ -52,8 +57,10 @@
       <i class="material-icons backButton" >keyboard_arrow_left</i>
       <div id="showwindowData" class="tableResults"></div>
   </div>
+  </div>
 </div>
 
+<div class="pagegridscrol">
   <section class="flexyouTube card">
   <iframe sandbox="allow-scripts allow-presentation" class="youtube"
   src="https://youtube.com/embed/2dy9fLZEg9A">

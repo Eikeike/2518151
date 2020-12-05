@@ -11,7 +11,7 @@ const Init = async () => {
     }
     catch(e){
         console.log(e);
-        throw e;
+        process.exit(1);
     }
 };
 

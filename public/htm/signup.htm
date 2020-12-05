@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+</head>
+<body>
+    <div class="box">
+        <h1> Sign up</h1>
+    <form id="loginForm" action="/register" method="POST">
+        <div class="inForm">
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input id="password1" type="password" placeholder="Password" name="password" required>
+            <label for="password"><b>repeat Password</b></label>
+            <input id="password2" type="password" placeholder="Password" name="password2" required>
+            <div class="buttonContainer">
+                <button type="submit" id="submit">Sign up</button>
+                <a href="login">I want to log in</a>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

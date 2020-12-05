@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
 </head>
 <body>
-    <a href="index.htm">BACK</a>
-    <form method="POST">
-        <div>
+    <div class="box">
+        <h1> Login</h1>
+    <form id="loginForm" action="/login" method="POST">
+        <div class="inForm">
             <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Username" name="username" required>
 
             <label for="password"><b>Password</b></label>
-            <input type="text" placeholder="Password" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="buttonContainer">
+                <button id="submit">Log in</button>
+                <a href="signup">sign up instead</a>
+            </div>
             
-            <button type="submit">Log in</button>
         </div>
     </form>
+    </div>
+
+    <script src="/js/login.js"></script>
 </body>
 </html>
