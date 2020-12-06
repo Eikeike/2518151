@@ -7,8 +7,6 @@
 //Some things we just need
 
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const bcryptjs = require("bcryptjs");
 //create Schema.
 let Schema = mongoose.Schema({
     username: {
