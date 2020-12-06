@@ -20,8 +20,9 @@
  3. `cd Server` - Egal wie, hauptsache man befindet sich nach diesem Schritt im "Server"- Verezichnis
  4. Im Terminal `npm install` eingeben
  5. Im Terminal `node runServ.js` eingeben
- 6. Browser öffnen
- 7. `localhost:3000` aufrufen
+ 6. Bei Fehlermeldungen: `npm ci` im Terminal eingeben
+ 7. Browser öffnen
+ 8. `localhost:3000` aufrufen
 
 ## Anmeldung
 Um zu Testen, habe ich ein System eingeführt, in dem nur Nutzer mit dem Wort "rich" im Nutzernamen zugriff auf das "Dashboard", also den dynamischen Content haben. 
