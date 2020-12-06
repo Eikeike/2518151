@@ -20,7 +20,7 @@
  3. `cd Server` - Egal wie, hauptsache man befindet sich nach diesem Schritt im "Server"- Verezichnis
  4. Im Terminal `npm install` eingeben
  5. Im Terminal `node runServ.js` eingeben
- 6. Bei Fehlermeldungen: `npm ci` im Terminal eingeben
+ 6. Bei Fehlermeldungen: `npm ci` im Terminal eingeben und Schritt 5 wiederholen
  7. Browser öffnen
  8. `localhost:3000` aufrufen
 
