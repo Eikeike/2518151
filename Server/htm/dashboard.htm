@@ -1,0 +1,71 @@
+<!-- Dashboard for dynamic content -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+    <script src="/js/dashboard.js"></script>
+    <!-- The header. It's almost the same as in index. This way it's easier on the eyes -->
+    <div class="header">
+        <header class="flexboxheader">
+            <img src="/images/logodhbw.svg" alt="W3Schools.com">
+            <h1 id="welcomeMessage">Dashboard: Dynamic content</h1>
+        </header>
+        <nav class="pagegridnavigation flexboxnav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="#wikipedia">Wikipedia-Search</a></li>
+            <li><a href="#weather">Wetterdaten - Anzeige</a></li>
+        </nav>
+    </div>
+
+    <!-- Wikipedia-Part -->
+    <div class="wikipedia">
+        <form id="search" class="search">
+            <input type="text" id="query" class="wikiSearch" placeholder="your wikipedia search">
+            <div class="buttonRow">
+                <button type="submit" id="submitSearch">go</button>
+                <button type="button" id="tts">Text to speech</button>
+                <button type="button" id=hide>close</button>
+                <button type="button" id=stop>stop!</button>
+                <select name="choose Voice" id="selectVoice">
+                <option value="">Choose the language you want me to read in</option>
+            </select>
+            </div>
+        </form>
+        <!-- Wikipedia search results will be stored here -->
+        <div class="Rowtable" id="showResults"></div>
+    </div>
+
+    <!-- Weather will be displayed here. HTML for flexbox contents of flex container are declared in dashboard.js -->
+    <div class="weather">
+    <form id="weatherSearch" class="search">
+        <input type="text" id="location" class="wikiSearch" placeholder="your city">
+        <div class="buttonRow">
+            <button type="submit" id="submitSearch">give it to me, weatherman</button>
+    </form>
+    <div id=cardsGoHere></div>
+</div>
+
+      <!-- Scrollabe part ends here. Only the footer is left -->
+    <div class="pagegridsfooter">
+        <footer>
+            <div class="footerflex">
+                This is the end. If there are any questions regarding any of the parts above, 
+                feel free to send an email to <a href="mailto:eike@wobken.de">eike@wobken.de</a>
+            </div>
+            <div class="footerflex right">
+                Web-Engineering Project, 2020. <br>
+                Matrikelnummer: 2518151
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

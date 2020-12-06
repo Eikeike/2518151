@@ -1,57 +1,26 @@
+/*Used for Both login and signup. They are supposed to look similar and contain exactly the same elements */
+
+
+/*Start with basic elements. Just a general layouting*/
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%
-  }
+}
 
-  .box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40%;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 5%;
-  }
+h1 {
+    text-align: center;
+    padding: 1rem
+}
 
-  .box .inForm label {
-    display: block;
-    padding: 0.8rem 0rem;
-    font-size: 0.8rem;
-    color: #fff;
-  }
-
-  .box .inForm input {
-    width: 100%;
-    padding: 0.8rem 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-    cursor: default;
-  }
-  input::placeholder{
-      color: #444444;
-  }
-
-  h1 {
-      text-align: center;
-      padding: 1rem
-  }
-
-  a{
+a {
     display: block;
     margin-top: 1.5rem;
     font-size: 0.8rem;
     color: #333
-  }
+}
 
-  button {
+button {
     background-color: rgb(172, 0, 0);
     border: none;
     color: white;
@@ -62,13 +31,63 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
-  .buttonContainer {
-      text-align: center;
-  }
+}
 
-  @media only screen and (max-width: 700px) {
-   h1 {
-       display: none
-   }
+
+/*A Box in the middle of the screen*/
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 5%;
+}
+
+
+/*Style contents in the form*/
+
+.box .inForm label {
+    display: block;
+    padding: 0.8rem 0rem;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.box .inForm input {
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    cursor: default;
+}
+
+input::placeholder {
+    color: #444444;
+}
+
+
+/*This contains the button for login*/
+
+.buttonContainer {
+    text-align: center;
+}
+
+
+/*We do not need the heading on small screens*/
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        display: none
     }
+}

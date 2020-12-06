@@ -1,3 +1,5 @@
+<!-- Login form for user login -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +10,27 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
 </head>
+
+
 <body>
     <div class="box">
-        <h1> Login</h1>
-    <form id="loginForm" action="/login" method="POST">
-        <div class="inForm">
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Username" name="username" required>
-
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Password" name="password" required>
-            <div class="buttonContainer">
-                <button id="submit">Log in</button>
-                <a href="signup">sign up instead</a>
-            </div>
-            
-        </div>
-    </form>
+            <h1> Login</h1>
+            <form id="loginForm" action="/login" method="POST">
+                <div class="inForm">
+                    <!-- Username -->
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Username" name="username" required>
+                    <!-- Password -->
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <!-- Login Button -->
+                    <div class="buttonContainer">
+                        <button id="submit">Log in</button>
+                        <a href="signup">sign up instead</a>
+                    </div>
+                </div>
+            </form>
     </div>
-
     <script src="/js/login.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+//This file created functions that sign up a user and authenticate him. Note: These are only functions that will be routed at a later time. Nothing happens here yet.
+
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -6,14 +8,18 @@ const User = require("./User");
 
 
 const register = (req, res) => {
+    //Take the password and hash it. Then call a function with the password
     bcrypt.hash(req.body.password, 10, function(err, hashedpw){
         if(err){
             res.json({
                 error: err
             })
         }
+        //If the username doesnt exist in the database, go ahead
         User.findOne({username: req.body.username}).then((user) => {
             if(!user){
+                //I didn't want to do everything manually. This is a solution just for development. 
+                //If the user's username contains the word rich, he is a rich user. Otherwise he isn't
                 let role = "";
                 if(req.body.username.includes('rich')){
                     role = "rich"
@@ -21,6 +27,7 @@ const register = (req, res) => {
                 else{
                     role = "poor"
                 }
+                //store user
                 let user = new User({
                     username: req.body.username,
                     password: hashedpw,
@@ -36,8 +43,11 @@ const register = (req, res) => {
                 }))
             }
             else{
+                //If the username is taken, redirect the user to signup page. The redirect is done on client side for several reasons. 
+                //Mostly it's because on form submit, the page is not reloaded, so a redirect requires a manual reload. 
+                //Might be a security issue, idk
                 res.json({
-                    message:'Dieser Nutzername ist bereits vergeben',
+                    message:'Username is already taken',
                     location: "signup"
                 })
             }
@@ -45,25 +55,32 @@ const register = (req, res) => {
     })
 }
 
+/**
+ * Provide functionality for checking if a user is registered
+ * @param {} req request from client
+ * @param {} res response to client
+ */
 const authenticate = (req, res) => {
-    console.log("auth");
+    console.log("Looking up user");
     try{
         var username = req.body.username,
             password = req.body.password
-            console.log(password);
         User.findOne({username: username}).then((user) => {
+            //if user cannot be found, the username is wrong
             if(!user){
                 res.json({
                     message:'wrong username'
                 })
             }
+            //if found but passwords do not match, password is wrong
             else if(!bcrypt.compareSync(password, user.password)){
                 res.json({
                     message:'wrong password'
                 })
             }
+            //if noting happens, the user is logged in.
             else{
-                console.log(user);
+                console.log("user logged in");
                 req.session.user = user;
                 res.json({
                     message:'redirect',
@@ -78,6 +95,4 @@ const authenticate = (req, res) => {
         })
     }
 }
-/*router.post('/register', register)
-router.post('/login', authenticate)*/
 module.exports = {register, authenticate}

@@ -1,0 +1,358 @@
+/*Style the dynamic contents*/
+
+
+/*Basic elements and things that are hidden from the beginning*/
+html{
+    height:100%
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
+button {
+    background-color: rgb(172, 0, 0);
+    border: none;
+    color: white;
+    margin: 10px;
+    padding: 0.5rem 3rem;
+    text-align: center;
+    border-radius: 5%;
+    border-style: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+#hide,
+#stop {
+    display: none;
+}
+
+
+/*Navigation exactly like in index.htm using flexbox. Also, include a welcome Message */
+
+.flexboxheader,
+.flexboxnav {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flexboxheader {
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#welcomeMessage {
+    padding: 2rem;
+}
+
+header {
+    color: white;
+    background-color: #393939;
+}
+
+nav li:nth-child(2n+1) {
+    background-color: #726e6e;
+}
+
+nav li:nth-child(2n+0) a:visited {
+    color: rgb(109, 107, 107)
+}
+
+nav li:nth-child(2n+0) {
+    background-color: #a5a5a5
+}
+
+nav li {
+    list-style-type: none;
+    padding: 1.3rem;
+    font-weight: bold
+}
+
+nav div:hover {
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    padding: inherit;
+    color: rgb(20, 20, 20);
+}
+
+a:visited {
+    color: rgb(161, 161, 161);
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: darkred;
+    text-decoration: none;
+}
+
+
+/*Declare grid layout here*/
+
+.header {
+    grid-area: 1 / 1 / span 1 / span 1;
+    
+}
+.wikipedia {
+    grid-area: wikipedia;
+    grid-area: 2 / 1 / span 1 /span 1;
+
+}
+
+.weather {
+    grid-area: weather;
+    grid-area: 3 / 1 / span 1 / span 1;
+
+}
+
+.pagegridsfooter {
+    grid-area: 4 / 1 / span 1 / span 1
+}
+
+
+/*Container for all the buttons*/
+
+.buttonRow {
+    text-align: center;
+}
+
+
+/*This is a search form for cities*/
+
+form.search {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 5rem;
+}
+
+/*This is only the wikipedia search. It comes first, so we want if to be a little spaced down*/
+#search{
+    margin-top: 5rem;
+}
+
+
+/*...and for Wikipedia queries*/
+
+.wikiSearch {
+    width: 90%;
+    margin: 5px;
+    height: 2rem
+}
+
+
+/*Instad of a table, I use a custom Div with a Row-cell layout*/
+
+.Rowtable {
+    display: block;
+    flex-wrap: wrap;
+    margin: 0 0 3em 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+/*One cell is one single field in the table*/
+
+.cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    border-bottom: solid #333;
+    border-width: 0.5px;
+    text-align: justify;
+    width: 100%;
+    padding: 2rem 0.5rem
+}
+
+.cell:nth-child(3n+1) {
+    font-weight: bold;
+    background-color: grey;
+}
+
+.cell:nth-child(3n) {
+    padding: 2rem 0rem;
+}
+
+
+/*Selection for speech languages*/
+
+select {
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+    border: solid grey;
+    border-width: 0.5px;
+    border-radius: 5%;
+    width: 30rem;
+    display: block;
+}
+
+
+/*All the weather data is stored in a container*/
+
+.cardContainer {
+    display: flex;
+    background-color: rgb(21, 21, 75);
+    flex-flow: column wrap;
+    justify-content: center;
+    border-radius: 3%;
+    margin: 0.6rem;
+    width: 15rem;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+}
+
+
+/*Every forecast is stored in a single card*/
+
+.flexWeatherCards {
+    padding: 4rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+
+/*Every data entry is encapsulated in a single item They need individual styling*/
+
+.cardItem {
+    padding: 1rem;
+}
+
+.cardItem * {
+    color: white;
+}
+
+.weather {
+    padding-top: 0px;
+}
+
+.weather span {
+    color: rgb(92, 92, 185)
+}
+
+.icon {
+    padding: 0rem 1rem;
+}
+
+#location {
+    margin-top: 2rem;
+}
+
+h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+/**style footer accordingly*/
+footer {
+    background-color: rgb(192, 192, 192);
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+footer {
+    padding: 0.5rem;
+}
+.footerflex{
+    flex-basis:50%;
+    text-align: start;
+    color:rgb(32, 32, 32);
+    font-size: small;
+}
+
+.footerflex a{
+    text-decoration: none;
+    color:rgb(32, 32, 32);
+}
+.right{
+    direction: rtl;
+}
+
+
+
+/*Media quries need a little more here, since we are dealing with dynamic content
+700-1000px
+*/
+
+
+/*10 - 450 px*/
+
+@media only screen and (min-width: 10px) {
+    header span {
+        font-size: 1rem;
+        padding-right: 1.0rem
+    }
+    nav li {
+        flex: 1 0 100%;
+    }
+}
+
+
+/* For small  tablets: 450-700  */
+
+@media only screen and (min-width: 450px) {
+    header span {
+        font-size: 1.2rem;
+        padding-right: 1.2rem
+    }
+    nav li {
+        flex: 1 0 0
+    }
+}
+
+
+/*This specific breakpoint is needed*/
+
+@media only screen and (max-width: 560px) {
+    #welcomeMessage {
+        display: none;
+    }
+}
+
+
+/*700-1000px: Change table layout*/
+
+@media only screen and (min-width: 700px) {
+    .Rowtable {
+        display: flex;
+    }
+    header span {
+        font-size: 1.4rem;
+        padding-right: 1.5rem
+    }
+    ;
+    .cell:nth-child(3n+1) {
+        background-color: white
+    }
+    .Rowtable>.cell {
+        width: 33.33% !important;
+        padding: 4rem 0.5rem
+    }
+}
+
+
+/*Big screens >1000, no restrictions*/
+
+@media only screen and (min-width: 1000px) {
+    header span {
+        font-size: 1.6rem;
+        padding-right: 2rem
+    }
+}
