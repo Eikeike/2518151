@@ -1,1 +1,0 @@
-GET https://api.openweathermap.org/data/2.5/forecast?q=Stuttgart&units=metric&lang=de&appid=f5cfae53f953c1f71a08d0ed979d3fdc; HTTP/1.1
