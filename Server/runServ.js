@@ -114,6 +114,7 @@ app.route('/login').get(checkSession, (req, res) => {
 //This means that a user can only sign up when he is logged out(which makes sense)
 app.route('/signup').get(checkSession, (req, res) => {
     var docname = "/htm/signup.htm";
+    console.log("Trying to sign up user");
     var options = { root: __dirname + '/../public/' }
     res.sendFile(docname, options, function(err) {
         if (err) {
@@ -176,8 +177,8 @@ app.all('/proxy', function(req, res) {
 //If everything fails, 404
 app.use(function(req, res, next){
     res.status(404);
-    var docname = "/fourofour.htm";
-    var options = { root: __dirname + '/htm' }
+    var docname = "/htm/fourofour.htm";
+    var options = { root: __dirname + '/../public' }
     res.sendFile(docname, options, function(err) {
         if (err) {
             res.send(err);

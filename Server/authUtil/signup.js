@@ -12,49 +12,66 @@ const register = (req, res) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedpw){
         if(err){
             res.json({
-                error: err
+                message: err
             })
         }
-        //If the username doesnt exist in the database, go ahead
-        User.findOne({username: req.body.username}).then((user) => {
-            if(!user){
-                //I didn't want to do everything manually. This is a solution just for development. 
-                //If the user's username contains the word rich, he is a rich user. Otherwise he isn't
-                let role = "";
-                if(req.body.username.includes('rich')){
-                    role = "rich"
-                }
-                else{
-                    role = "poor"
-                }
-                //store user
-                let user = new User({
-                    username: req.body.username,
-                    password: hashedpw,
-                    role: role
-                })  
-             user.save().then(user => {
-                res.json({
-                    message: req.body.username + " has been added successfully",
-                })
-            }).catch(error => 
-                res.json({
-                    message: error
-                }))
-            }
-            else{
-                //If the username is taken, redirect the user to signup page. The redirect is done on client side for several reasons. 
-                //Mostly it's because on form submit, the page is not reloaded, so a redirect requires a manual reload. 
-                //Might be a security issue, idk
-                res.json({
-                    message:'Username is already taken',
-                    location: "signup"
-                })
-            }
-        })
+        if(req.body.password.length < 6){
+            res.json({
+                message:"Minimum length of password is 6 characters",
+                location:"signup"
+            })
+            console.log("Error-MinLength not given");
+        }else{
+            signUpUser(req, res);
+        }
+        
     })
 }
 
+/**
+ * Helper function for better readability
+ * @param {} req Request from POST
+ * @param {} res Response given to Client
+ */
+function signUpUser(req, res){
+    //If the username doesnt exist in the database, go ahead
+    User.findOne({username: req.body.username}).then((user) => {
+        if(!user){
+            //I didn't want to do everything manually. This is a solution just for development. 
+            //If the user's username contains the word rich, he is a rich user. Otherwise he isn't
+            let role = "";
+            if(req.body.username.includes('rich')){
+                role = "rich"
+            }
+            else{
+                role = "poor"
+            }
+            //store user
+            let user = new User({
+                username: req.body.username,
+                password: hashedpw,
+                role: role
+            })  
+         user.save().then(user => {
+            res.json({
+                message: req.body.username + " has been added successfully",
+            })
+        }).catch(error => 
+            res.json({
+                message: error
+            }))
+        }
+        else{
+            //If the username is taken, redirect the user to signup page. The redirect is done on client side for several reasons. 
+            //Mostly it's because on form submit, the page is not reloaded, so a redirect requires a manual reload. 
+            //Might be a security issue, idk
+            res.json({
+                message:'Username is already taken',
+                location: "signup"
+            })
+        }
+    })
+}
 /**
  * Provide functionality for checking if a user is registered
  * @param {} req request from client
