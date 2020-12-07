@@ -6,6 +6,8 @@
             dataType : 'json',
             success : function (response) {
                 if(response.message =="redirect"){
+                    //in case of a successful login, the server sets the message to "redirect". This has to be done because a serverside redirect doesn't send a message, which 
+                    //causes the form not to be updated (since we never enter the success function), forcing us to do a manual page reload. We do not want this.
                     console.log(response.location);
                     window.location.replace("http://localhost:3000/" + response.location)
                 }
