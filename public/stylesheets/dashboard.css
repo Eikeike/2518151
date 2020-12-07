@@ -123,6 +123,7 @@ a:focus {
 
 .buttonRow {
     text-align: center;
+    max-width:100%
 }
 
 
@@ -199,7 +200,7 @@ select {
     border-width: 0.5px;
     border-radius: 5%;
     width: 30rem;
-    display: block;
+    max-width:70%
 }
 
 
@@ -301,7 +302,18 @@ footer {
     }
     nav li {
         flex: 1 0 100%;
+        padding: 0.5rem;
+        margin-right: 1rem;
     }
+    .flexboxnav{
+        margin-right:1rem;
+    }
+    img{
+        max-width:90%
+    }
+
+     /*Quick and dirty, maybe fix later*/
+   
 }
 
 
@@ -313,7 +325,14 @@ footer {
         padding-right: 1.2rem
     }
     nav li {
-        flex: 1 0 0
+        flex: 1 0 0;
+        margin-right:0rem;
+    }
+    .flexboxnav{
+        margin-right:0rem;
+    }
+    select{
+        max-width:100%
     }
 }
 

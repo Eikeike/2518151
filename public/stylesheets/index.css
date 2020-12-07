@@ -288,14 +288,28 @@ footer {
         font-size: 1rem;
         padding-right: 1.0rem
     }
+    h1{
+        display: none
+    }
     nav li {
         flex: 1 0 100%;
+        padding: 0.5rem;
     }
     .FakImg {
         flex-basis: 100%
     }
     .FakTxt {
         flex-basis: 100%
+    }
+     /*Quick and dirty, maybe fix later*/
+     .flexboxnav{
+        margin: 0rem 1rem;
+    }
+    .flexboxheader{
+        margin-right:1rem;
+    }
+    .rand{
+        width: 7rem;
     }
 }
 
@@ -316,6 +330,7 @@ footer {
     .FakTxt {
         flex-basis: auto;
     }
+   
 }
 
 
