@@ -101,6 +101,8 @@ function loadDoc(toGet) {
  @param pages Json-Parsed ressponse from the wikipedia api that only displays the pages available
  */
 function showTable(pages) {
+    //reset important variables
+    wikiPediaText = "";
     var tabletext = "";
     Object.keys(pages).forEach(key => {
         var page = pages[key];
@@ -140,6 +142,7 @@ function textToSpeech() {
     utterText.pitch = 1;
     utterText.rate = 1;
     //read out the text
+    speech.cancel();
     speech.speak(utterText);
     document.getElementById('stop').style.display = "inline-block"
 }
