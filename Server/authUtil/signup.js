@@ -22,7 +22,7 @@ const register = (req, res) => {
             })
             console.log("Error-MinLength not given");
         }else{
-            signUpUser(req, res);
+            signUpUser(req, res, hashedpw);
         }
         
     })
@@ -33,7 +33,7 @@ const register = (req, res) => {
  * @param {} req Request from POST
  * @param {} res Response given to Client
  */
-function signUpUser(req, res){
+function signUpUser(req, res, hashedpw){
     //If the username doesnt exist in the database, go ahead
     User.findOne({username: req.body.username}).then((user) => {
         if(!user){
